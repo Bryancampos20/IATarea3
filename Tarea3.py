@@ -37,40 +37,49 @@ def apply_filters(image):
     # 3. Canny Edge Detection
     canny_edges = cv2.Canny(image, 100, 200)
     
-    return blurred_image, sobel_combined, canny_edges
+    # 4. Colormap
+    colormap_image = cv2.applyColorMap(cv2.convertScaleAbs(image), cv2.COLORMAP_JET)
+    
+    return blurred_image, sobel_combined, canny_edges, colormap_image
 
 # Aplicar los filtros y mostrar las imágenes
-plt.figure(figsize=(15, 10))
+plt.figure(figsize=(20, 15))
 
 index = 1
 for category, image in images.items():
-    blurred_image, sobel_combined, canny_edges = apply_filters(image)
+    blurred_image, sobel_combined, canny_edges, colormap_image = apply_filters(image)
     
     # Mostrar la imagen original
-    plt.subplot(len(categories), 4, index)
+    plt.subplot(len(categories), 5, index)
     plt.imshow(image, cmap='gray')
     plt.title(f'{category} - Original')
     plt.axis('off')
     
     # Mostrar la imagen con Blur
-    plt.subplot(len(categories), 4, index + 1)
+    plt.subplot(len(categories), 5, index + 1)
     plt.imshow(blurred_image, cmap='gray')
     plt.title(f'{category} - Blur')
     plt.axis('off')
 
     # Mostrar la imagen con Sobel
-    plt.subplot(len(categories), 4, index + 2)
+    plt.subplot(len(categories), 5, index + 2)
     plt.imshow(sobel_combined, cmap='gray')
     plt.title(f'{category} - Sobel')
     plt.axis('off')
     
     # Mostrar la imagen con Canny
-    plt.subplot(len(categories), 4, index + 3)
+    plt.subplot(len(categories), 5, index + 3)
     plt.imshow(canny_edges, cmap='gray')
     plt.title(f'{category} - Canny')
     plt.axis('off')
+    
+    # Mostrar la imagen con Colormap
+    plt.subplot(len(categories), 5, index + 4)
+    plt.imshow(colormap_image)
+    plt.title(f'{category} - Colormap')
+    plt.axis('off')
 
-    index += 4
+    index += 5
 
 plt.tight_layout()
 plt.show()
