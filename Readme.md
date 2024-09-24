@@ -32,7 +32,7 @@ El código de ambas partes está desarrollado en Jupyter Notebooks, y se incluye
 - `ParteA.ipynb`: Contiene el código para la aplicación de filtros a las imágenes.
 - `ParteB.ipynb`: Contiene el código para el desarrollo del chatbot basado en embeddings.
 - `Informe.pdf`: Informe detallado que describe los métodos utilizados, los resultados obtenidos y el análisis correspondiente.
-- `Tarea_02.pdf`: Documento de referencia de la tarea que incluye la rúbrica y los pasos a seguir.
+- `Instrucciones.pdf`: Documento de referencia de la tarea que incluye la rúbrica y los pasos a seguir.
 
 ## Requisitos
 
